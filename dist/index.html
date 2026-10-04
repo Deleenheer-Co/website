@@ -11,8 +11,8 @@
   <meta property="og:locale" content="nl_BE">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23000035'/%3E%3Ctext x='14' y='47' fill='%23ffffff' font-family='Georgia' font-size='47'%3Ed%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=1040f6026a">
-  <script src="app.js?v=662ead8f8c" defer></script>
+  <link rel="stylesheet" href="styles.css?v=f556a53082">
+  <script src="app.js?v=bd25c5bdf2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Naar de inhoud</a>
@@ -41,8 +41,24 @@
   <main id="main">
     <section class="hero" id="home" aria-labelledby="hero-title" data-label="Welkom" data-number="00">
       <p class="hero-eyebrow">De Leenheer & C° <span>Roeselare, België</span></p>
-      <h1 id="hero-title">Drie generaties<br>accountancy.</h1>
-      <figure class="hero-art"><img src="assets/accountancy-sculpture.png" width="1774" height="887" fetchpriority="high" alt="Drie sculpturale papiervormen met fijne boekhoudrasters en grafietkleurige lagen"></figure>
+      <h1 id="hero-title">Drie generaties<br><span>accountancy.</span></h1>
+      <div class="ledger-art" aria-hidden="true">
+        <svg class="ledger-drawing" viewBox="0 0 760 550" fill="none" focusable="false">
+          <defs>
+            <pattern id="ledger-rule" width="12" height="7" patternUnits="userSpaceOnUse"><path d="M0 .5H12" stroke="currentColor" stroke-width=".9"/></pattern>
+            <linearGradient id="ledger-fade"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".2" stop-color="#fff"/><stop offset=".88" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+            <mask id="ledger-grid-mask"><path fill="url(#ledger-fade)" d="M0 0H760V550H0z"/></mask>
+          </defs>
+          <g class="ledger-grid" mask="url(#ledger-grid-mask)" stroke="currentColor" stroke-width=".6">
+            <path d="M0 68H760M0 116H760M0 164H760M0 212H760M0 260H760M0 308H760M0 356H760M0 404H760M0 452H760M0 500H760"/>
+            <path d="M92 0V550M284 0V550M476 0V550M668 0V550"/>
+          </g>
+          <g class="ledger-notation" fill="currentColor" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" letter-spacing="1.5"><text x="95" y="47">01</text><text x="287" y="47">02</text><text x="479" y="47">03</text></g>
+          <g class="ledger-number"><text x="60" y="426" fill="url(#ledger-rule)" stroke="currentColor" stroke-width=".55" font-family="Helvetica Neue,Arial,sans-serif" font-size="465" font-weight="500" letter-spacing="-35">03</text></g>
+          <g class="ledger-connectors" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path pathLength="1" d="M92 474H284V486H476V498H668"/><circle cx="92" cy="474" r="3" fill="currentColor"/><circle cx="284" cy="486" r="3" fill="currentColor"/><circle cx="476" cy="498" r="3" fill="currentColor"/></g>
+          <g class="ledger-caption" fill="currentColor" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" letter-spacing="1.5"><text x="92" y="535">GENERATIES</text><text x="476" y="535">ÉÉN FAMILIE</text></g>
+        </svg>
+      </div>
       <div class="hero-introduction"><p>Een familiaal kantoor voor uw boekhouding, fiscaliteit en bedrijfsadvies. We kennen de mensen achter de cijfers en denken mee met uw onderneming.</p><a class="line-link" href="#kantoor">Maak kennis met ons kantoor <span aria-hidden="true">↗</span></a></div>
       <div class="hero-footer"><p>Boekhouding <span>·</span> Fiscaliteit <span>·</span> Bedrijfsadvies</p><a href="#kantoor">Ontdek ons verhaal <span aria-hidden="true">↓</span></a></div>
     </section>
@@ -52,7 +68,7 @@
     </div>
     <section class="office-section section" id="kantoor" aria-labelledby="office-title" data-label="Familie" data-number="01">
       <div class="section-top"><p class="eyebrow">01 / Familiaal verankerd</p><span class="section-side">Niet zomaar een kantoor. Een familie.</span></div>
-      <div class="family-layout"><div class="generation-mark" aria-label="Drie generaties"><span class="generation-number" aria-hidden="true">03</span><span>Generaties kennis.<br>Dezelfde betrokkenheid.</span></div><div class="office-copy"><h2 id="office-title" data-reveal>Ons vak geven<br>we door.<br><span class="subtle">Onze waarden ook.</span></h2><div class="family-text" data-reveal><p>Ons kantoor wordt al drie generaties binnen dezelfde familie doorgegeven. Wat blijft, is de overtuiging dat goed advies begint bij mensen kennen.</p><p>Bij De Leenheer & C° bent u geen dossiernummer. We luisteren naar uw plannen, kennen uw onderneming en denken mee met wat voor u telt. De ervaring van vorige generaties en de kennis van ons team komen samen in advies dat bij u past.</p></div><a class="line-link" href="#team">De mensen achter het verhaal</a></div></div>
+      <div class="family-layout"><div class="generation-mark" aria-label="Familiale betrokkenheid"><span class="generation-number family-ampersand" aria-hidden="true">&amp;</span><span>Ervaring doorgegeven.<br>Persoonlijk betrokken.</span></div><div class="office-copy"><h2 id="office-title" data-reveal>Ons vak geven<br>we door.<br><span class="subtle">Onze waarden ook.</span></h2><div class="family-text" data-reveal><p>Ons kantoor wordt al drie generaties binnen dezelfde familie doorgegeven. Wat blijft, is de overtuiging dat goed advies begint bij mensen kennen.</p><p>Bij De Leenheer & C° bent u geen dossiernummer. We luisteren naar uw plannen, kennen uw onderneming en denken mee met wat voor u telt. De ervaring van vorige generaties en de kennis van ons team komen samen in advies dat bij u past.</p></div><a class="line-link" href="#team">De mensen achter het verhaal</a></div></div>
       <div class="family-principles"><div data-reveal><span>01 /</span><h3>Dichtbij.</h3><p>Korte lijnen. Een persoonlijk gesprek. Aandacht voor wat u belangrijk vindt.</p></div><div data-reveal><span>02 /</span><h3>Doordacht.</h3><p>Opgebouwde kennis, verbonden met een heldere blik op uw onderneming.</p></div><div data-reveal><span>03 /</span><h3>Doorgegeven.</h3><p>Ervaring die blijft groeien. Waarden die we meenemen naar de volgende generatie.</p></div></div>
     </section>
     <section class="section expertise" id="expertise" aria-labelledby="expertise-title" data-label="Expertise" data-number="02">

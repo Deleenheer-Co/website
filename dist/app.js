@@ -36,6 +36,8 @@ desktopViewport.addEventListener('change', event => {
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const cinematic = document.querySelector('.cinematic');
+const hero = document.querySelector('.hero');
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 let ticking = false;
 function updateScroll() {
   const sections = [...document.querySelectorAll('main > section[data-number]')];
@@ -44,6 +46,10 @@ function updateScroll() {
     if (link.hash === '#' + current.id) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
+  const heroRect = hero.getBoundingClientRect();
+  const heroProgress = Math.max(0, Math.min(1, -heroRect.top / heroRect.height));
+  hero.style.setProperty('--ledger-scroll', reduceMotion.matches ? '0px' : heroProgress * 70 + 'px');
+  hero.style.setProperty('--hero-line', String(1 + heroProgress * 8));
   if (!reduceMotion.matches && window.innerWidth > 760) {
     const rect = cinematic.getBoundingClientRect();
     if (rect.bottom > 0 && rect.top < innerHeight) {
@@ -62,6 +68,29 @@ window.addEventListener('scroll', requestScrollUpdate, { passive: true });
 window.addEventListener('resize', requestScrollUpdate);
 reduceMotion.addEventListener('change', requestScrollUpdate);
 updateScroll();
+let pointerFrame = 0;
+let pointerX = 0;
+let pointerY = 0;
+function resetHeroPointer() {
+  cancelAnimationFrame(pointerFrame);
+  pointerFrame = 0;
+  hero.style.removeProperty('--ledger-x');
+  hero.style.removeProperty('--ledger-y');
+}
+hero.addEventListener('pointermove', event => {
+  if (reduceMotion.matches || !finePointer.matches || event.pointerType === 'touch') return;
+  const rect = hero.getBoundingClientRect();
+  pointerX = (event.clientX - rect.left) / rect.width - .5;
+  pointerY = (event.clientY - rect.top) / rect.height - .5;
+  if (!pointerFrame) pointerFrame = requestAnimationFrame(() => {
+    hero.style.setProperty('--ledger-x', pointerX * 20 + 'px');
+    hero.style.setProperty('--ledger-y', pointerY * 16 + 'px');
+    pointerFrame = 0;
+  });
+}, { passive: true });
+hero.addEventListener('pointerleave', resetHeroPointer);
+reduceMotion.addEventListener('change', resetHeroPointer);
+finePointer.addEventListener('change', resetHeroPointer);
 if ('IntersectionObserver' in window && !reduceMotion.matches) {
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {

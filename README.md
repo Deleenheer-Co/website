@@ -40,7 +40,7 @@ Het familiale verhaal en de overdracht door drie generaties zijn gebaseerd op de
 
 Elke statische webhost kan `dist/` publiceren. Sites gebruikt de configuratie in `.openai/hosting.json`. De preview is privé; dit project wijzigt geen DNS-instellingen van deleenheer.be.
 
-De compositie en navigatie zijn geïnspireerd op de ruimtelijkheid en typografie van skinn.agency/branding. De visuele hero combineert drie generaties accountancy met een abstracte papiercompositie en een concrete introductie. Er zijn geen teksten, logo’s of beelden van SKINN gekopieerd.
+De compositie en navigatie zijn geïnspireerd op de ruimtelijkheid en typografie van skinn.agency/branding. De visuele hero bouwt het cijfer 03 op uit grootboeklijnen die doorlopen in de pagina. Het lijnwerk reageert subtiel op scrollen en muisbeweging, met respect voor verminderde beweging. Er zijn geen teksten, logo’s of beelden van SKINN gekopieerd.
 
 ### Nieuwe sfeerfoto
 
@@ -50,6 +50,6 @@ De compositie en navigatie zijn geïnspireerd op de ruimtelijkheid en typografie
 - Licentie: https://unsplash.com/license (commercieel gebruik en wijzigingen toegestaan; geraadpleegd op 4 oktober 2026).
 - Gebruikt als illustratieve werkruimte, niet als het daadwerkelijke kantoor.
 
-### Accountancy-artwork
+### Geïntegreerd lijnwerk
 
-`dist/assets/accountancy-sculpture.png` is origineel artwork, gemaakt met de ingebouwde imagegen-tool op verzoek van de opdrachtgever. Drie abstracte gevouwen grootboekvormen verbinden precisie, balans en de drie generaties van het kantoor. Het beeld bevat geen echte financiële gegevens. De exacte prompt en herkomst staan in `artwork-notes.json`.
+De hero gebruikt inline SVG en CSS: grootboeklijnen vormen het cijfer 03 voor de drie generaties. Het ontwerp bevat geen fictieve financiële gegevens en is decoratief voor schermlezers. De eerdere gegenereerde afbeelding is vervangen. Hoverreacties in de expertise, gerichte pijlanimaties en een dunne scrollbar met transparante track vormen samen de interactiestijl.
