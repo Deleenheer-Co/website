@@ -1,38 +1,4 @@
-const menuButton = document.querySelector('.menu-toggle');
-const navigation = document.querySelector('#navigation');
-const navLinks = document.querySelectorAll('.desktop-nav a, #navigation a');
-const masthead = document.querySelector('.masthead');
-const desktopViewport = window.matchMedia('(min-width: 901px)');
-const menuDialog = document.querySelector('#menu-dialog');
-function closeMenu() {
-  menuDialog.close();
-  menuButton.setAttribute('aria-expanded', 'false');
-  document.body.classList.remove('menu-open');
-}
-menuButton.addEventListener('click', () => {
-  menuDialog.showModal();
-  menuButton.setAttribute('aria-expanded', 'true');
-  document.body.classList.add('menu-open');
-});
-document.querySelector('#close-menu').addEventListener('click', closeMenu);
-menuDialog.addEventListener('close', () => {
-  menuButton.setAttribute('aria-expanded', 'false');
-  document.body.classList.remove('menu-open');
-});
-menuDialog.addEventListener('click', event => { if (event.target === menuDialog) closeMenu(); });
-navigation.addEventListener('click', event => {
-  const link = event.target.closest('a');
-  if (!link) return;
-  closeMenu();
-  const target = document.querySelector(link.hash);
-  if (target) {
-    target.tabIndex = -1;
-    requestAnimationFrame(() => target.focus({ preventScroll: true }));
-  }
-});
-desktopViewport.addEventListener('change', event => {
-  if (event.matches && menuDialog.open) { closeMenu(); masthead.querySelector('.brand').focus(); }
-});
+const navLinks = document.querySelectorAll('.desktop-nav a');
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const cinematic = document.querySelector('.cinematic');

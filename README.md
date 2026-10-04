@@ -12,7 +12,7 @@ Open http://localhost:4175. Geen installatie of build nodig: `dist/` bevat de vo
 
 ## Inhoud
 
-- Transparante vaste navigatie bovenaan met geleidelijk naar transparant vervagende achtergrondblur, rustige tekstlinks, hoverbeweging en een schermvullend mobiel menu.
+- Transparante vaste navigatie met geleidelijk vervagende achtergrondblur en rustige tekstlinks. Op mobiel blijven de links zichtbaar onder het logo, zonder popupmenu.
 - Vier uitklapbare expertisedomeinen.
 - Familieverhaal van drie generaties, grote typografie, strakke lijnen en bestaande teamportretten.
 - Publicatie en bestaand Webwin-sectornieuws, pas geladen na een klik.
@@ -38,7 +38,9 @@ Het familiale verhaal en de overdracht door drie generaties zijn gebaseerd op de
 
 ## Hosting
 
-Elke statische webhost kan `dist/` publiceren. Sites gebruikt de configuratie in `.openai/hosting.json`. De preview is privé; dit project wijzigt geen DNS-instellingen van deleenheer.be.
+De website wordt gepubliceerd op **https://deleenheer-co.github.io/website/** via GitHub Pages. `.github/workflows/pages.yml` publiceert uitsluitend de inhoud van `dist/` bij wijzigingen op `main` en kan ook handmatig worden gestart in GitHub Actions. In de repository staat Pages ingesteld op GitHub Actions. Er is geen build nodig.
+
+De bestaande Sites-configuratie in `.openai/hosting.json` blijft beschikbaar voor de eerdere preview. Deze GitHub Pages-publicatie wijzigt geen DNS-instellingen van deleenheer.be.
 
 De compositie en navigatie zijn geïnspireerd op de ruimtelijkheid en typografie van skinn.agency/branding. De visuele hero bouwt het cijfer 03 op uit grootboeklijnen die doorlopen in de pagina. Het lijnwerk reageert subtiel op scrollen en muisbeweging, met respect voor verminderde beweging. Er zijn geen teksten, logo’s of beelden van SKINN gekopieerd.
 
