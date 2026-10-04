@@ -12,7 +12,7 @@ Open http://localhost:4175. Geen installatie of build nodig: `dist/` bevat de vo
 
 ## Inhoud
 
-- Transparante vaste navigatie met geleidelijk vervagende achtergrondblur en rustige tekstlinks. Op mobiel staan logo en links op één rij. De links zijn horizontaal schuifbaar wanneer nodig, zonder popupmenu.
+- Transparante vaste navigatie met geleidelijk vervagende achtergrondblur en rustige tekstlinks. Op mobiel staat een compacte knop “Menu” naast het logo. Die opent een genummerde index in de pagina, met alle secties direct zichtbaar. Er is geen popup, overlay, scroll-lock of horizontaal scrollmenu.
 - Vier uitklapbare expertisedomeinen.
 - Familieverhaal van drie generaties, grote typografie, strakke lijnen en bestaande teamportretten.
 - Publicatie en bestaand Webwin-sectornieuws, pas geladen na een klik.
@@ -27,6 +27,7 @@ Het formulier verstuurt zelf geen berichten. De bezoeker opent een voorbereid be
 - `dist/index.html`: alle inhoud, semantische structuur en metadata.
 - `dist/styles.css`: ontwerp en responsive lay-outs.
 - `dist/app.js`: menu, sectiemarkering, nieuws en e-mailconcept.
+- `dist/scrollbar.css` en `dist/scrollbar.js`: transparante overlay-scrollbar met slepen en toetsenbordbediening.
 - `dist/assets/`: lokaal opgeslagen teamportretten, logo en een gelicentieerde sfeerfoto.
 - `.openai/hosting.json`: Sites-hostingconfiguratie.
 
@@ -54,4 +55,4 @@ De compositie en navigatie zijn geïnspireerd op de ruimtelijkheid en typografie
 
 ### Geïntegreerd lijnwerk
 
-De hero gebruikt inline SVG en CSS: grootboeklijnen vormen het cijfer 03 voor de drie generaties. Het ontwerp bevat geen fictieve financiële gegevens en is decoratief voor schermlezers. De eerdere gegenereerde afbeelding is vervangen. Hoverreacties in de expertise, gerichte pijlanimaties en een dunne scrollbar met transparante track vormen samen de interactiestijl.
+De hero gebruikt inline SVG en CSS: grootboeklijnen vormen het cijfer 03 voor de drie generaties. Het ontwerp bevat geen fictieve financiële gegevens en is decoratief voor schermlezers. De eerdere gegenereerde afbeelding is vervangen. Hoverreacties in de expertise, gerichte pijlanimaties en een dunne overlay-scrollbar zonder achtergrondbaan vormen samen de interactiestijl.

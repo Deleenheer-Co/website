@@ -1,13 +1,56 @@
-const navLinks = document.querySelectorAll('.desktop-nav a');
-const navigation = document.querySelector('.desktop-nav');
-function updateNavEdges() {
-  const remaining = navigation.scrollWidth - navigation.clientWidth - navigation.scrollLeft;
-  navigation.style.setProperty('--nav-start', navigation.scrollLeft > 1 ? '0' : '1');
-  navigation.style.setProperty('--nav-end', remaining > 1 ? '0' : '1');
+const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-explore a');
+const masthead = document.querySelector('.masthead');
+const exploreButton = document.querySelector('.explore-toggle');
+const exploreLabel = document.querySelector('.explore-label');
+const mobileExplore = document.querySelector('.mobile-explore');
+const mobileViewport = window.matchMedia('(max-width: 900px)');
+const shortViewport = window.matchMedia('(max-width: 900px) and (max-height: 400px)');
+let returnScrollY = null;
+function closeExplore(restoreScroll = true) {
+  mobileExplore.hidden = true;
+  masthead.classList.remove('is-exploring');
+  exploreButton.setAttribute('aria-expanded', 'false');
+  exploreLabel.textContent = 'Menu';
+  if (restoreScroll && returnScrollY !== null) window.scrollTo({ top: returnScrollY, behavior: 'instant' });
+  returnScrollY = null;
 }
-navigation.addEventListener('scroll', updateNavEdges, { passive: true });
-window.addEventListener('resize', updateNavEdges);
-updateNavEdges();
+exploreButton.addEventListener('click', () => {
+  if (!mobileExplore.hidden) { closeExplore(); return; }
+  returnScrollY = shortViewport.matches ? window.scrollY : null;
+  mobileExplore.hidden = false;
+  masthead.classList.add('is-exploring');
+  exploreButton.setAttribute('aria-expanded', 'true');
+  exploreLabel.textContent = 'Sluiten';
+  if (shortViewport.matches) masthead.scrollIntoView({ block: 'start', behavior: 'instant' });
+});
+mobileExplore.addEventListener('click', event => {
+  const link = event.target.closest('a[href^="#"]');
+  if (!link) return;
+  closeExplore(false);
+  const target = document.querySelector(link.hash);
+  if (target) { target.tabIndex = -1; requestAnimationFrame(() => target.focus({ preventScroll: true })); }
+});
+masthead.querySelector('.brand').addEventListener('click', () => closeExplore(false));
+masthead.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || mobileExplore.hidden) return;
+  event.preventDefault();
+  closeExplore();
+  exploreButton.focus({ preventScroll: true });
+});
+mobileViewport.addEventListener('change', event => {
+  if (event.matches) return;
+  const focusedLink = document.activeElement.closest('.mobile-explore a');
+  const buttonFocused = document.activeElement === exploreButton;
+  closeExplore();
+  if (focusedLink) document.querySelector('.desktop-nav a[href="' + focusedLink.hash + '"]').focus({ preventScroll: true });
+  else if (buttonFocused) masthead.querySelector('.brand').focus({ preventScroll: true });
+});
+shortViewport.addEventListener('change', event => {
+  if (event.matches && !mobileExplore.hidden) {
+    returnScrollY = window.scrollY;
+    masthead.scrollIntoView({ block: 'start', behavior: 'instant' });
+  }
+});
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const cinematic = document.querySelector('.cinematic');

@@ -11,8 +11,10 @@
   <meta property="og:locale" content="nl_BE">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23000035'/%3E%3Ctext x='14' y='47' fill='%23ffffff' font-family='Georgia' font-size='47'%3Ed%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=e9b686a46e">
-  <script src="app.js?v=3f4cac9198" defer></script>
+  <link rel="stylesheet" href="styles.css?v=584cd6e955">
+  <link rel="stylesheet" href="scrollbar.css?v=9c4791faf7">
+  <script src="app.js?v=8727b0dc19" defer></script>
+  <script src="scrollbar.js?v=883328df94" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Naar de inhoud</a>
@@ -24,6 +26,14 @@
       <a href="#team"><span class="nav-word"><span>Team</span><span aria-hidden="true">Team</span></span></a>
       <a href="#inzichten"><span class="nav-word"><span>Inzichten</span><span aria-hidden="true">Inzichten</span></span></a>
       <a href="#contact"><span class="nav-word"><span>Contact</span><span aria-hidden="true">Contact</span></span></a>
+    </nav>
+    <button class="explore-toggle" type="button" aria-expanded="false" aria-controls="mobile-explore"><span class="explore-label">Menu</span><span class="explore-icon" aria-hidden="true"></span></button>
+    <nav class="mobile-explore" id="mobile-explore" aria-label="Mobiele navigatie" hidden>
+      <a href="#kantoor"><span class="explore-number" aria-hidden="true">01</span><span>Ons verhaal</span><span class="explore-arrow" aria-hidden="true">↗</span></a>
+      <a href="#expertise"><span class="explore-number" aria-hidden="true">02</span><span>Expertise</span><span class="explore-arrow" aria-hidden="true">↗</span></a>
+      <a href="#team"><span class="explore-number" aria-hidden="true">03</span><span>Het team</span><span class="explore-arrow" aria-hidden="true">↗</span></a>
+      <a href="#inzichten"><span class="explore-number" aria-hidden="true">04</span><span>Inzichten</span><span class="explore-arrow" aria-hidden="true">↗</span></a>
+      <a class="explore-contact" href="#contact"><span class="explore-number" aria-hidden="true">05</span><span>Een kennismaking?</span><span class="explore-arrow" aria-hidden="true">↗</span></a>
     </nav>
   </header>
   <main id="main">
