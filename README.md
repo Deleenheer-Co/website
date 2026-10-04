@@ -33,7 +33,7 @@ Het formulier verstuurt zelf geen berichten. De bezoeker opent een voorbereid be
 
 Bedrijfsgegevens en diensten zijn gebaseerd op https://www.deleenheer.be/ en de contact- en inhousepagina's, geraadpleegd op 4 oktober 2026. Logo en beelden zijn hergebruikt uit die website voor dit herontwerp. De portretfoto's zijn echte bestaande teamfoto's; de andere foto's zijn illustratief en worden niet voorgesteld als foto's van het kantoor. Deze repository kent geen nieuwe licentie toe aan dat bestaande beeldmateriaal.
 
-Het familiale verhaal en de overdracht door drie generaties zijn gebaseerd op de correctie van de opdrachtgever. Het oorspronkelijke donkerblauw (#000035), wit en lichtgrijs zijn behouden. De contactgegevens en teambezetting zijn overgenomen zoals gepubliceerd; er zijn geen functies, beoordelingen, klanten, keurmerken of ervaringsjaren verzonnen. De bestaande website en het bestaande domein zijn niet gewijzigd.
+Het familiale verhaal en de overdracht door drie generaties zijn gebaseerd op de correctie van de opdrachtgever. De oorspronkelijke witte en lichtgrijze basis is behouden. Op verzoek van de opdrachtgever zijn grote donkerblauwe vlakken vervangen door een lichte uitstraling; het originele logo blijft behouden. De contactgegevens en teambezetting zijn overgenomen zoals gepubliceerd; er zijn geen functies, beoordelingen, klanten, keurmerken of ervaringsjaren verzonnen. De bestaande website en het bestaande domein zijn niet gewijzigd.
 
 ## Hosting
 
