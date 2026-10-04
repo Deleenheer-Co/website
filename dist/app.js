@@ -1,4 +1,13 @@
 const navLinks = document.querySelectorAll('.desktop-nav a');
+const navigation = document.querySelector('.desktop-nav');
+function updateNavEdges() {
+  const remaining = navigation.scrollWidth - navigation.clientWidth - navigation.scrollLeft;
+  navigation.style.setProperty('--nav-start', navigation.scrollLeft > 1 ? '0' : '1');
+  navigation.style.setProperty('--nav-end', remaining > 1 ? '0' : '1');
+}
+navigation.addEventListener('scroll', updateNavEdges, { passive: true });
+window.addEventListener('resize', updateNavEdges);
+updateNavEdges();
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const cinematic = document.querySelector('.cinematic');

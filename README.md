@@ -12,7 +12,7 @@ Open http://localhost:4175. Geen installatie of build nodig: `dist/` bevat de vo
 
 ## Inhoud
 
-- Transparante vaste navigatie met geleidelijk vervagende achtergrondblur en rustige tekstlinks. Op mobiel blijven de links zichtbaar onder het logo, zonder popupmenu.
+- Transparante vaste navigatie met geleidelijk vervagende achtergrondblur en rustige tekstlinks. Op mobiel staan logo en links op één rij. De links zijn horizontaal schuifbaar wanneer nodig, zonder popupmenu.
 - Vier uitklapbare expertisedomeinen.
 - Familieverhaal van drie generaties, grote typografie, strakke lijnen en bestaande teamportretten.
 - Publicatie en bestaand Webwin-sectornieuws, pas geladen na een klik.
