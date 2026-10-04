@@ -48,8 +48,12 @@ html{scrollbar-width:thin;scrollbar-color:#85858099 transparent}
 .hero-footer{position:relative}.hero-footer:before{content:"";position:absolute;top:-1px;left:0;width:60px;height:1px;background:var(--ink);transform:scaleX(var(--hero-line,1));transform-origin:left;transition:transform .15s linear}
 .family-ampersand{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(140px,23vw,360px);font-weight:400}
 .line-link>span{display:inline-block;transition:transform .35s var(--ease)}.line-link:hover>span{transform:translate(4px,-4px)}
-.service .expand{transition:transform .4s var(--ease)}.service[open] summary .expand{transform:rotate(180deg)}
-@media(hover:hover) and (pointer:fine){.service summary:hover .expand{transform:rotate(90deg)}.service[open] summary:hover .expand{transform:rotate(180deg)}}
+.service summary{position:relative}.service summary:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
+.service summary h3{transition:transform .45s var(--ease)}.service-number{transition:transform .45s var(--ease),color .3s}
+.service .expand{border-radius:50%;transition:transform .45s var(--ease),background-color .3s}.service[open] summary .expand{transform:rotate(180deg)}
+@media(hover:hover) and (pointer:fine){.service summary:hover:after{transform:scaleX(1)}.service summary:hover h3{transform:translateX(8px)}.service summary:hover .service-number{color:var(--ink);transform:translateX(3px)}.service summary:hover .expand{background:rgba(36,36,36,.055);transform:rotate(90deg) scale(1.12)}.service[open] summary:hover .expand{transform:rotate(180deg) scale(1.12)}}
+.service summary:focus-visible:after{transform:scaleX(1)}.service summary:focus-visible .expand{background:rgba(36,36,36,.055)}
+@media(prefers-reduced-motion:reduce){.service summary h3,.service-number,.service .expand{transform:none!important}}
 .portrait{position:relative}
 @keyframes ledger-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes ledger-enter{from{opacity:0}to{opacity:1}}
