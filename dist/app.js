@@ -1,5 +1,8 @@
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
+const navLinks = document.querySelectorAll('.desktop-nav a, #navigation a');
+const masthead = document.querySelector('.masthead');
+const desktopViewport = window.matchMedia('(min-width: 901px)');
 const menuDialog = document.querySelector('#menu-dialog');
 function closeMenu() {
   menuDialog.close();
@@ -27,19 +30,17 @@ navigation.addEventListener('click', event => {
     requestAnimationFrame(() => target.focus({ preventScroll: true }));
   }
 });
+desktopViewport.addEventListener('change', event => {
+  if (event.matches && menuDialog.open) { closeMenu(); masthead.querySelector('.brand').focus(); }
+});
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const dock = document.querySelector('.page-dock');
 const cinematic = document.querySelector('.cinematic');
 let ticking = false;
 function updateScroll() {
-  const available = document.documentElement.scrollHeight - window.innerHeight;
-  dock.style.setProperty('--progress', available > 0 ? String(window.scrollY / available) : '0');
   const sections = [...document.querySelectorAll('main > section[data-number]')];
   const current = sections.filter(section => section.getBoundingClientRect().top <= innerHeight * .45).pop() || sections[0];
-  document.querySelector('#current-number').textContent = current.dataset.number;
-  document.querySelector('#current-label').textContent = current.dataset.label;
-  navigation.querySelectorAll('a').forEach(link => {
+  navLinks.forEach(link => {
     if (link.hash === '#' + current.id) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });

@@ -11,24 +11,25 @@
   <meta property="og:locale" content="nl_BE">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23000035'/%3E%3Ctext x='14' y='47' fill='%23ffffff' font-family='Georgia' font-size='47'%3Ed%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=f826469a7b">
-  <script src="app.js?v=a0013cefcb" defer></script>
+  <link rel="stylesheet" href="styles.css?v=1040f6026a">
+  <script src="app.js?v=662ead8f8c" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Naar de inhoud</a>
   <header class="masthead">
     <a class="brand" href="#home" aria-label="De Leenheer & C°, naar boven"><img src="assets/logo.svg" width="235" height="40" alt="De Leenheer & C°"></a>
-    <p>Familiaal accountancykantoor<br>Roeselare, België</p>
+    <nav class="desktop-nav" aria-label="Hoofdnavigatie">
+      <a href="#kantoor"><span class="nav-word"><span>Ons verhaal</span><span aria-hidden="true">Ons verhaal</span></span></a>
+      <a href="#expertise"><span class="nav-word"><span>Expertise</span><span aria-hidden="true">Expertise</span></span></a>
+      <a href="#team"><span class="nav-word"><span>Team</span><span aria-hidden="true">Team</span></span></a>
+      <a href="#inzichten"><span class="nav-word"><span>Inzichten</span><span aria-hidden="true">Inzichten</span></span></a>
+      <a href="#contact"><span class="nav-word"><span>Contact</span><span aria-hidden="true">Contact</span></span></a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-dialog" aria-haspopup="dialog"><span>Menu</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
   </header>
-  <div class="page-dock" aria-label="Paginanavigatie">
-    <a class="dock-current" href="#home" aria-label="Terug naar het begin"><span id="current-number">00</span><span id="current-label">Welkom</span></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-dialog" aria-haspopup="dialog"><span>Verken</span><span class="menu-icon" aria-hidden="true">+</span></button>
-    <a class="dock-contact" href="#contact">Kennismaken</a>
-    <span class="dock-progress" aria-hidden="true"></span>
-  </div>
   <dialog id="menu-dialog" class="index-dialog" aria-labelledby="index-title">
     <div class="index-top"><p id="index-title">De Leenheer & C° — Inhoud</p><button id="close-menu" type="button" aria-label="Menu sluiten">Sluiten <span aria-hidden="true">×</span></button></div>
-    <nav id="navigation" aria-label="Hoofdnavigatie">
+    <nav id="navigation" aria-label="Mobiele navigatie">
       <a href="#kantoor"><span>01</span><span>Familiaal verankerd</span><small>Ons verhaal</small></a>
       <a href="#expertise"><span>02</span><span>Een heldere blik</span><small>Expertise</small></a>
       <a href="#team"><span>03</span><span>De mensen</span><small>Ons team</small></a>
@@ -39,13 +40,14 @@
   </dialog>
   <main id="main">
     <section class="hero" id="home" aria-labelledby="hero-title" data-label="Welkom" data-number="00">
-      <div class="hero-meta"><p>Boekhouding · Fiscaliteit · Bedrijfsadvies</p><span>Persoonlijk. Al drie generaties.</span></div>
-      <h1 id="hero-title"><span class="hero-word">Vertrouwen.</span><span class="hero-subline">Van generatie<br>op generatie.</span></h1>
-      <div class="hero-bottom"><p>Kennis geven we door. Betrokkenheid zit in onze familie. We staan naast u en uw onderneming — vandaag én bij elke volgende stap.</p><a class="line-link" href="#kantoor">Ontdek ons verhaal <span class="scroll-mark" aria-hidden="true"></span></a></div>
-      <span class="hero-edition" aria-hidden="true">DLC° / 03 GEN.</span>
+      <p class="hero-eyebrow">De Leenheer & C° <span>Roeselare, België</span></p>
+      <h1 id="hero-title">Drie generaties<br>accountancy.</h1>
+      <figure class="hero-art"><img src="assets/accountancy-sculpture.png" width="1774" height="887" fetchpriority="high" alt="Drie sculpturale papiervormen met fijne boekhoudrasters en grafietkleurige lagen"></figure>
+      <div class="hero-introduction"><p>Een familiaal kantoor voor uw boekhouding, fiscaliteit en bedrijfsadvies. We kennen de mensen achter de cijfers en denken mee met uw onderneming.</p><a class="line-link" href="#kantoor">Maak kennis met ons kantoor <span aria-hidden="true">↗</span></a></div>
+      <div class="hero-footer"><p>Boekhouding <span>·</span> Fiscaliteit <span>·</span> Bedrijfsadvies</p><a href="#kantoor">Ontdek ons verhaal <span aria-hidden="true">↓</span></a></div>
     </section>
     <div class="cinematic" data-reveal>
-      <div class="cinematic-image"><img src="assets/workspace.jpg" width="2400" height="1600" alt="Lichte werkruimte met houten tafels en grote ramen" fetchpriority="high"></div>
+      <div class="cinematic-image"><img src="assets/workspace.jpg" width="2400" height="1600" alt="Lichte werkruimte met houten tafels en grote ramen" loading="lazy"></div>
       <div class="cinematic-caption"><span>Een gedeeld verhaal.</span><span>Een blik vooruit.</span></div>
     </div>
     <section class="office-section section" id="kantoor" aria-labelledby="office-title" data-label="Familie" data-number="01">

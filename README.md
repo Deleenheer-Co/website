@@ -12,7 +12,7 @@ Open http://localhost:4175. Geen installatie of build nodig: `dist/` bevat de vo
 
 ## Inhoud
 
-- Zwevende paginawijzer met scrollvoortgang, een schermvullend inhoudsmenu en ankerlinks.
+- Transparante vaste navigatie bovenaan met geleidelijk naar transparant vervagende achtergrondblur, rustige tekstlinks, hoverbeweging en een schermvullend mobiel menu.
 - Vier uitklapbare expertisedomeinen.
 - Familieverhaal van drie generaties, grote typografie, strakke lijnen en bestaande teamportretten.
 - Publicatie en bestaand Webwin-sectornieuws, pas geladen na een klik.
@@ -40,7 +40,7 @@ Het familiale verhaal en de overdracht door drie generaties zijn gebaseerd op de
 
 Elke statische webhost kan `dist/` publiceren. Sites gebruikt de configuratie in `.openai/hosting.json`. De preview is privé; dit project wijzigt geen DNS-instellingen van deleenheer.be.
 
-De compositie is geïnspireerd op de ruimtelijkheid en typografie van skinn.agency/branding. Er zijn geen teksten, logo’s of beelden van SKINN gekopieerd.
+De compositie en navigatie zijn geïnspireerd op de ruimtelijkheid en typografie van skinn.agency/branding. De visuele hero combineert drie generaties accountancy met een abstracte papiercompositie en een concrete introductie. Er zijn geen teksten, logo’s of beelden van SKINN gekopieerd.
 
 ### Nieuwe sfeerfoto
 
@@ -49,3 +49,7 @@ De compositie is geïnspireerd op de ruimtelijkheid en typografie van skinn.agen
 - Beeld: https://images.unsplash.com/photo-1496681859237-6039cd585c4e
 - Licentie: https://unsplash.com/license (commercieel gebruik en wijzigingen toegestaan; geraadpleegd op 4 oktober 2026).
 - Gebruikt als illustratieve werkruimte, niet als het daadwerkelijke kantoor.
+
+### Accountancy-artwork
+
+`dist/assets/accountancy-sculpture.png` is origineel artwork, gemaakt met de ingebouwde imagegen-tool op verzoek van de opdrachtgever. Drie abstracte gevouwen grootboekvormen verbinden precisie, balans en de drie generaties van het kantoor. Het beeld bevat geen echte financiële gegevens. De exacte prompt en herkomst staan in `artwork-notes.json`.

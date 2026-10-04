@@ -1,0 +1,10 @@
+{
+  "asset": "dist/assets/accountancy-sculpture.png",
+  "dimensions": [
+    1774,
+    887
+  ],
+  "tool": "built-in imagegen",
+  "mode": "generate",
+  "prompt": "Use case: stylized-concept\nAsset type: Wide 2:1 landscape artwork for the De Leenheer & C° accountancy website, ideally 2048 x 1024.\nPrimary request: An exquisitely art-directed abstract physical paper sculpture inspired by accounting, precision, balance, and a family firm passing its craft through three generations.\nScene/backdrop: Seamless white to very light warm gray studio ground and background.\nSubject: Three related layered sculptural forms made of precisely folded ledger paper. Quietly architectural, organically related and balanced, with subtle embossed grids and extremely fine graphite linework suggesting financial structure. Matte charcoal details and one restrained brushed-metal accent. No recognizable office equipment.\nStyle/medium: Sophisticated contemporary still-life photography of a believable tactile paper sculpture, art-gallery quality, warm human craftsmanship, editorial art direction.\nComposition/framing: Wide 2:1 full composition. Forms centered and crop-safe, carefully composed in the middle with generous negative space around them. Low oblique viewpoint showing layered edges, folds and surfaces.\nLighting/mood: Beautiful directional daylight from upper left, soft luminous highlights, sculptural architectural shadows; calm, exacting and quietly warm.\nColor palette: White, soft warm gray, graphite and matte charcoal, with restrained silver brushed metal.\nMaterials/textures: Thick tactile uncoated paper, crisp folds, delicately embossed grids, very fine graphite marks. Material realism and meticulous craft.\nText: None.\nConstraints: No people or portraits. No blue blocks. No slogans, letters, numbers, words, logos or watermarks. No stock-office scene, charts screenshot, corporate clipart, money symbols, coins, calculator, floating dashboard or digital interface. Create one finished artwork only."
+}
