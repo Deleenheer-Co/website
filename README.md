@@ -12,12 +12,12 @@ Open http://localhost:4175. Geen installatie of build nodig: `dist/` bevat de vo
 
 ## Inhoud
 
-- Transparante vaste navigatie met geleidelijk vervagende achtergrondblur en rustige tekstlinks. Op mobiel staat een compacte knop “Menu” naast het logo. Die opent een genummerde index in de pagina, met alle secties direct zichtbaar. Er is geen popup, overlay, scroll-lock of horizontaal scrollmenu.
+- Transparante vaste navigatie met geleidelijk vervagende achtergrondblur en rustige tekstlinks. Op mobiel staat een fijn tweelijnig menu-icoon naast het logo. De vijf secties schuiven van rechts op dezelfde regel naar binnen, terwijl het logo naar links verdwijnt. Na een keuze schuift het logo terug. Alle opties blijven direct bereikbaar, zonder popup of intern scrollmenu.
 - Vier uitklapbare expertisedomeinen.
 - Familieverhaal van drie generaties, grote typografie, strakke lijnen en bestaande teamportretten.
 - Publicatie en bestaand Webwin-sectornieuws, pas geladen na een klik.
 - Telefoon, e-mail, route en een formulier dat een e-mailconcept opent.
-- Rustige verschijningseffecten, een meebewegend breed sfeerbeeld en kleur bij hover op teamfoto’s. Alle beweging respecteert verminderde beweging.
+- Een schermvullende hero, rustige verschijningseffecten, een sfeerbeeld dat tijdens het scrollen tot volledige schermbreedte groeit en kleur bij hover op teamfoto’s. Alle beweging respecteert verminderde beweging.
 - Privacy-informatie, metadata en favicon.
 
 Het formulier verstuurt zelf geen berichten. De bezoeker opent een voorbereid bericht in het eigen e-mailprogramma en verstuurt het daar. Er is geen formulierbackend of opslag van persoonsgegevens. De externe nieuwsfeed kan eigen cookies plaatsen nadat de bezoeker deze opent.
@@ -55,4 +55,4 @@ De compositie en navigatie zijn geïnspireerd op de ruimtelijkheid en typografie
 
 ### Geïntegreerd lijnwerk
 
-De hero gebruikt inline SVG en CSS: grootboeklijnen vormen het cijfer 03 voor de drie generaties. Het ontwerp bevat geen fictieve financiële gegevens en is decoratief voor schermlezers. De eerdere gegenereerde afbeelding is vervangen. Hoverreacties in de expertise, gerichte pijlanimaties en een dunne overlay-scrollbar zonder achtergrondbaan vormen samen de interactiestijl.
+De hero gebruikt inline SVG en CSS: grootboeklijnen vormen het cijfer 03 voor de drie generaties. Het ontwerp bevat geen fictieve financiële gegevens en is decoratief voor schermlezers. De eerdere gegenereerde afbeelding is vervangen. De expertise blijft licht bij hover. De familieprincipes en diensten gebruiken rustige nummering; het menu gebruikt tekstlinks. De dunne overlay-scrollbar heeft geen achtergrondbaan of klikrand; alleen toetsenbordbediening toont een focusmarkering.

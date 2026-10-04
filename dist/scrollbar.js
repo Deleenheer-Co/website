@@ -24,7 +24,24 @@
     let range = 0;
     let thumbHeight = 0;
     let travel = 0;
+    let keyboardInput = false;
     const clamp = (value, maximum) => Math.max(0, Math.min(maximum, value));
+
+    function usePointerInput() {
+      keyboardInput = false;
+      track.classList.remove('has-keyboard-focus');
+    }
+
+    document.addEventListener('pointerdown', usePointerInput, true);
+    document.addEventListener('keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.key === 'Shift') return;
+      keyboardInput = true;
+      if (document.activeElement === track && !drag) track.classList.add('has-keyboard-focus');
+    }, true);
+    track.addEventListener('focus', () => {
+      track.classList.toggle('has-keyboard-focus', keyboardInput && !drag);
+    });
+    track.addEventListener('blur', () => track.classList.remove('has-keyboard-focus'));
 
     function endDrag() {
       if (!drag) return;
@@ -77,6 +94,7 @@
     track.addEventListener('pointerdown', event => {
       if (!event.isPrimary || event.button !== 0 || forcedColors.matches) return;
       event.preventDefault();
+      usePointerInput();
       if (frame) cancelAnimationFrame(frame);
       update();
       if (track.hidden) return;

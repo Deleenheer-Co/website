@@ -1,58 +1,68 @@
 const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-explore a');
 const masthead = document.querySelector('.masthead');
 const exploreButton = document.querySelector('.explore-toggle');
-const exploreLabel = document.querySelector('.explore-label');
+const navTrack = document.querySelector('.nav-track');
 const mobileExplore = document.querySelector('.mobile-explore');
+const navBrand = masthead.querySelector('.brand');
 const mobileViewport = window.matchMedia('(max-width: 900px)');
-const shortViewport = window.matchMedia('(max-width: 900px) and (max-height: 400px)');
-let returnScrollY = null;
-function closeExplore(restoreScroll = true) {
-  mobileExplore.hidden = true;
-  masthead.classList.remove('is-exploring');
-  exploreButton.setAttribute('aria-expanded', 'false');
-  exploreLabel.textContent = 'Menu';
-  if (restoreScroll && returnScrollY !== null) window.scrollTo({ top: returnScrollY, behavior: 'instant' });
-  returnScrollY = null;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let exploreOpen = false;
+let exploreAnimation = null;
+let exploreRevision = 0;
+async function setExplore(open, { immediate = false } = {}) {
+  const revision = ++exploreRevision;
+  const from = getComputedStyle(navTrack).transform;
+  exploreAnimation?.cancel();
+  exploreOpen = open;
+  exploreButton.setAttribute('aria-expanded', String(open));
+  exploreButton.setAttribute('aria-label', open ? 'Sluiten' : 'Menu');
+  mobileExplore.style.visibility = 'visible';
+  mobileExplore.inert = !open;
+  navBrand.inert = open;
+  masthead.classList.toggle('is-exploring', open);
+  if (!immediate && !reduceMotion.matches && mobileViewport.matches) {
+    exploreAnimation = navTrack.animate([
+      { transform: from }, { transform: open ? 'translateX(-100%)' : 'translateX(0)' }
+    ], { duration: open ? 550 : 480, easing: 'cubic-bezier(.22,1,.36,1)' });
+    try { await exploreAnimation.finished; } catch { return false; }
+  }
+  if (revision !== exploreRevision) return false;
+  mobileExplore.style.visibility = open ? 'visible' : 'hidden';
+  exploreAnimation = null;
+  return true;
 }
-exploreButton.addEventListener('click', () => {
-  if (!mobileExplore.hidden) { closeExplore(); return; }
-  returnScrollY = shortViewport.matches ? window.scrollY : null;
-  mobileExplore.hidden = false;
-  masthead.classList.add('is-exploring');
-  exploreButton.setAttribute('aria-expanded', 'true');
-  exploreLabel.textContent = 'Sluiten';
-  if (shortViewport.matches) masthead.scrollIntoView({ block: 'start', behavior: 'instant' });
-});
-mobileExplore.addEventListener('click', event => {
+exploreButton.addEventListener('click', () => setExplore(!exploreOpen));
+mobileExplore.addEventListener('click', async event => {
   const link = event.target.closest('a[href^="#"]');
-  if (!link) return;
-  closeExplore(false);
-  const target = document.querySelector(link.hash);
-  if (target) { target.tabIndex = -1; requestAnimationFrame(() => target.focus({ preventScroll: true })); }
-});
-masthead.querySelector('.brand').addEventListener('click', () => closeExplore(false));
-masthead.addEventListener('keydown', event => {
-  if (event.key !== 'Escape' || mobileExplore.hidden) return;
+  if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
-  closeExplore();
+  const target = document.querySelector(link.hash);
+  if (!(await setExplore(false)) || !target) return;
+  if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+  target.tabIndex = -1;
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ block: 'start', behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+});
+masthead.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || !exploreOpen) return;
+  event.preventDefault();
+  setExplore(false);
   exploreButton.focus({ preventScroll: true });
 });
 mobileViewport.addEventListener('change', event => {
-  if (event.matches) return;
+  if (event.matches) {
+    if (document.activeElement.closest('.desktop-nav a')) exploreButton.focus({ preventScroll: true });
+    return;
+  }
   const focusedLink = document.activeElement.closest('.mobile-explore a');
   const buttonFocused = document.activeElement === exploreButton;
-  closeExplore();
+  setExplore(false, { immediate: true });
   if (focusedLink) document.querySelector('.desktop-nav a[href="' + focusedLink.hash + '"]').focus({ preventScroll: true });
-  else if (buttonFocused) masthead.querySelector('.brand').focus({ preventScroll: true });
+  else if (buttonFocused) navBrand.focus({ preventScroll: true });
 });
-shortViewport.addEventListener('change', event => {
-  if (event.matches && !mobileExplore.hidden) {
-    returnScrollY = window.scrollY;
-    masthead.scrollIntoView({ block: 'start', behavior: 'instant' });
-  }
-});
+window.addEventListener('resize', () => exploreAnimation?.finish());
+reduceMotion.addEventListener('change', () => { if (reduceMotion.matches) exploreAnimation?.finish(); });
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const cinematic = document.querySelector('.cinematic');
 const hero = document.querySelector('.hero');
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
@@ -68,11 +78,12 @@ function updateScroll() {
   const heroProgress = Math.max(0, Math.min(1, -heroRect.top / heroRect.height));
   hero.style.setProperty('--ledger-scroll', reduceMotion.matches ? '0px' : heroProgress * 70 + 'px');
   hero.style.setProperty('--hero-line', String(1 + heroProgress * 8));
-  if (!reduceMotion.matches && window.innerWidth > 760) {
+  if (!reduceMotion.matches) {
     const rect = cinematic.getBoundingClientRect();
     if (rect.bottom > 0 && rect.top < innerHeight) {
-      const progress = Math.max(0, Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height)));
-      cinematic.style.setProperty('--media-inset', Math.max(0, (1 - progress * 2.4) * 55) + 'px');
+      const progress = Math.max(0, Math.min(1, (innerHeight - rect.top) / Math.max(1, innerHeight - masthead.offsetHeight)));
+      const inset = Math.min(88, Math.max(24, innerWidth * .04));
+      cinematic.style.setProperty('--media-inset', (1 - progress) * inset + 'px');
       cinematic.style.setProperty('--media-offset', (-5 + progress * 5) + '%');
     }
   } else {

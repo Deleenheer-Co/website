@@ -4,5 +4,5 @@ html.has-overlay-scrollbar::-webkit-scrollbar{display:none;width:0;height:0}
 .page-scrollbar[hidden]{display:none}
 .page-scrollbar__thumb{position:absolute;top:0;right:3px;width:3px;min-height:28px;border-radius:3px;background:rgba(88,88,83,.65);pointer-events:none}
 .page-scrollbar:hover .page-scrollbar__thumb,.page-scrollbar.is-dragging .page-scrollbar__thumb{background:#585853}
-.page-scrollbar:focus-visible .page-scrollbar__thumb{outline:2px solid #000035;outline-offset:2px}
+.page-scrollbar.has-keyboard-focus:focus:not(.is-dragging) .page-scrollbar__thumb{outline:2px solid #3e3e39;outline-offset:1px}
 @media(forced-colors:active){html.has-overlay-scrollbar{scrollbar-width:auto;scrollbar-color:auto}html.has-overlay-scrollbar::-webkit-scrollbar{display:revert;width:revert;height:revert}.page-scrollbar{display:none}}
